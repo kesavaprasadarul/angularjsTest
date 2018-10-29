@@ -1,0 +1,38 @@
+<div>
+    <label class="form-control">Username </label>
+    <input type="text" class="form-control" ngModel #un="ngModel" required pattern="[a-zA-Z]*"><br>
+    <span *ngIf="un.errors && un.touched" class="alert-danger">
+      <span *ngIf="un.errors.required">Please enter the correct username</span>
+      <span *ngIf="un.errors.pattern">Username can contain only {{un.errors.pattern.requiredPattern}}</span>
+      
+    </span>
+    
+    
+    <label class="form-control">Password</label>
+    <input type="text" class="form-control" ngModel="pass" #pass="ngModel" required minlength="3"><br>
+    <span *ngIf="pass.errors && pass.touched" class="alert-danger">
+      <span *ngIf="pass.errors.required">Please enter the password</span>
+      <span *ngIf="pass.errors.minlength">Password should have min 3 characters</span>
+    </span>
+
+    <label class="form-control">Name</label>
+    <input type="text" class="form-control" ngModel="name" #name="ngModel" required minlength="3"><br>
+    <span *ngIf="name.errors && name.touched" class="alert-danger">Name Required</span>
+
+
+    <label class="form-control">Age</label>
+    <input type="text" class="form-control" ngModel="age" #age="ngModel" required pattern="[0-9]*" minlength="2"><br>
+    <span *ngIf="age.errors && age.touched" class="alert-danger">
+      <span *ngIf="age.errors.required">Please enter the age</span>
+       <span *ngIf="age.errors.pattern">Please enter number</span>
+      <span *ngIf="age.errors.minlength">Age should have 2 numbers</span>
+    </span>
+
+
+   
+    <button  class="btn btn-success" (click)="Show(un.value,pass.value,name.value,age.value)">Register  </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-fab color="warn" class="btn btn-danger">Reset</button>
+  
+</div>
+

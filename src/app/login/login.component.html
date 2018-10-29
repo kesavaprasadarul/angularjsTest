@@ -1,0 +1,19 @@
+<div>
+  <form [formGroup]="myLoginForm" (ngSubmit)="Login(myLoginForm)">
+    <label class="form-control" for="txtUsername">User Name</label>
+    <input type="text" id="txtUsername" formControlName="username"><br>
+    <span *ngIf="username.errors && username.touched">
+      <span  class="alert-warning" *ngIf="username.errors">please enter the user name </span><br>
+      <span *ngIf="username.errors.minlength">userName should be minimum of 3 characters</span><br>
+      <span *ngIf="username.errors.pattern"> username should be of alphabets only</span><br>
+    </span>
+      <br>
+    <label class="form-control" for="txtPassword">Password</label>
+    <input type="password" id="txtPassword" formControlName="password"><br>
+    <span class="alert-warning" *ngIf="password.errors?.required && password.touched">password required</span>
+    <br>
+    <button  class="btn btn-success" (click)="Login(myLoginForm)">Login</button>
+    {{message}}
+  </form>
+
+  </div>
